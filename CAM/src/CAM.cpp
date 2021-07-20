@@ -1,7 +1,11 @@
+//platformio include
+#include <Arduino.h>
+
 #include <esp_camera.h>
 #include <SD.h>
 #include <FS.h>
-#include <esp32/rom/tjpgd.h>
+//#include <esp32/rom/tjpgd.h>
+#include "C:\Users\user\.platformio\packages\framework-arduinoespressif32\tools\sdk\include\esp32\rom\tjpgd.h"
 #include "cam.h"
 #include "ST7789.h"
 #include "tjpgdec.h"
@@ -21,6 +25,15 @@ sensor_t *s;
 camera_fb_t *fb = NULL;
 JPGIODEV dev;
 char *work = NULL; // Pointer to the working buffer (must be 4-byte aligned)
+
+void init_folder();
+void enterSleep();
+void snap();
+void findNextFileIdxTask(void *parameter);
+void findNextFileIdx();
+void decodeJpegBuff(uint8_t arrayname[], uint32_t array_size, uint8_t scale);
+void decodeJpegFile(char filename[], uint8_t scale);
+esp_err_t cam_init();
 
 void setup()
 {
