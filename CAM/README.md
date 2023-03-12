@@ -5,7 +5,7 @@ A scientific camera that signs it's picture metadata with a hash of itself desti
 Hardware used : ESP32 TTGO Camera Plus
 
 # Install
-
+## using arduino IDE
 Install Arduino IDE https://linuxhint.com/install_arduino_ide_debian_10/
 
 Install ESP32 in the Board manager and choose “ESP32 Dev”“ or install manually thanks to (Debian) https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/debian_ubuntu.md
@@ -29,6 +29,22 @@ git clone https://github.com/anonette/NonFungibleScience
 
 Compile and Transfer 
 
+## using PlatformIO
+```bash
+#clone repo and switch to platformio branch
+git clone git@github.com:anonette/NonFungibleScience.git  && cd NonFungibleScience && git checkout platformio
+
+#install platformio
+curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py && python get-platformio.py
+#you can be also get it as vscode extension https://platformio.org/install/ide?install=vscode
+
+#install dependencies
+pio lib install
+#build
+pio run
+#upload
+pio run --target upload
+```
 # More infos
 
 https://wiki.idiot.io/esp32-cam_2
