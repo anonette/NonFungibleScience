@@ -30,13 +30,20 @@ Open the .ino file after
 Compile and Transfer 
 
 ## using PlatformIO
+install platformio, in [cli](https://docs.platformio.org/en/latest/core/installation/methods/installer-script.html) 
+
+```bash
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+```
+or as [vscode extension](https://platformio.org/install/ide?install=vscode) 
+
+then clone repo and build
 ```bash
 #clone repo and switch to platformio branch
 git clone git@github.com:anonette/NonFungibleScience.git  && cd NonFungibleScience && git checkout platformio
 
-#install platformio
-curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py && python get-platformio.py
-#you can be also get it as vscode extension https://platformio.org/install/ide?install=vscode
+#goto the src folder where platform.ini is
+cd src
 
 #install dependencies
 pio lib install
