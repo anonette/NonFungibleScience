@@ -8,24 +8,24 @@ Hardware used : ESP32 TTGO Camera Plus
 ## using arduino IDE
 Install Arduino IDE https://linuxhint.com/install_arduino_ide_debian_10/
 
-Install ESP32 in the Board manager and choose “ESP32 Dev”“ or install manually thanks to (Debian) https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/debian_ubuntu.md
+Install ESP32 in the Board manager and choose `ESP32 Dev` or install manually thanks to (Debian) https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/debian_ubuntu.md
 
 I had this error:
-
+```
  File "/home/me/Arduino/hardware/espressif/esp32/tools/esptool/esptool.py", line 38, in <module>
     import serial
 ImportError: No module named serial
-
+```
 I have fixed this issue with following steps:
-
-    Download the pyserial package from: https://pypi.org/project/pyserial/#files
-    tar zxvf pyserial-3.0.tar.gz
-    cd pyserial
-    sudo python setup.py install
-
+```bash
+#Download the pyserial package from: https://pypi.org/project/pyserial/#files
+tar zxvf pyserial-3.0.tar.gz
+cd pyserial
+sudo python setup.py install
+```
 Open the .ino file after
 
-git clone https://github.com/anonette/NonFungibleScience
+`git clone https://github.com/anonette/NonFungibleScience`
 
 Compile and Transfer 
 
