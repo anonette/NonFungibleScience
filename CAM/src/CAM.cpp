@@ -4,8 +4,8 @@
 #include <esp_camera.h>
 #include <SD.h>
 #include <FS.h>
-//#include <esp32/rom/tjpgd.h>
-#include "C:\Users\user\.platformio\packages\framework-arduinoespressif32\tools\sdk\include\esp32\rom\tjpgd.h"
+#include <LittleFS.h>
+#include "esp32/rom/tjpgd.h"
 #include "cam.h"
 #include "ST7789.h"
 #include "tjpgdec.h"
@@ -128,8 +128,8 @@ esp_err_t cam_init()
   config.pin_pclk = PCLK_GPIO_NUM;
   config.pin_vsync = VSYNC_GPIO_NUM;
   config.pin_href = HREF_GPIO_NUM;
-  config.pin_sscb_sda = SIOD_GPIO_NUM;
-  config.pin_sscb_scl = SIOC_GPIO_NUM;
+  config.pin_sccb_sda = SIOD_GPIO_NUM;
+  config.pin_sccb_scl = SIOC_GPIO_NUM;
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
@@ -286,7 +286,7 @@ void snap()
   
   // Save picture
 
-  if (file != NULL)  {
+  if (file != 0)  {
     size_t ret = 0;
     
     if (exif_header != NULL) {
